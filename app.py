@@ -1,12 +1,21 @@
 import random
+import datetime
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
+
+def log_message(user_input, response):
+    """Logs chat history to a file"""
+    with open("chat_log.txt", "a") as log_file:
+        log_file.write(f"{datetime.datetime.now()} | User: {user_input} | Assistant: {response}\n")
 
 @app.route('/chat', methods=['POST'])
 def chat():
     user_input = request.json.get('message')
     response = generate_response(user_input)
+
+    log_message(user_input, response) 
+    
     return jsonify({'response': response})
 
 def generate_response(user_input):
