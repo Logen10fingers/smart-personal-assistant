@@ -1,6 +1,8 @@
 import random
+import nltk
 import datetime
 from flask import Flask, request, jsonify
+from nltk.tokenize import word_tokenize
 
 app = Flask(__name__)
 
@@ -20,18 +22,19 @@ def chat():
 
 def generate_response(user_input):
     user_input = user_input.lower()  # Convert to lowercase for better matching
+    tokens = word_tokenize(user_input)  # Tokenize user input
 
     greetings = ["hello", "hi", "hey"]
     farewell = ["bye", "goodbye", "see you"]
     thanks = ["thank you", "thanks"]
 
-    if any(word in user_input for word in greetings):
+    if any(word in tokens for word in greetings):  # Corrected this line
         return random.choice(["Hello!", "Hi there!", "Hey! How can I help?"])
 
-    elif any(word in user_input for word in farewell):
+    elif any(word in tokens for word in farewell):  # Corrected this line
         return random.choice(["Goodbye!", "See you later!", "Take care!"])
 
-    elif any(word in user_input for word in thanks):
+    elif any(word in tokens for word in thanks):  # Corrected this line
         return random.choice(["You're welcome!", "No problem!", "Glad to help!"])
 
     else:
