@@ -24,7 +24,15 @@ A **Smart Personal Assistant** built to provide conversational support, growing 
 
 ## Project Structure
 
-smart-personal-assistant/ ├── app.py # Flask backend with /chat endpoint and context logic ├── chat_log.txt # Logs of user-assistant conversations ├── frontend/ # Next.js frontend directory │ ├── pages/ # React pages (e.g., chat interface) │ ├── styles/ # Tailwind CSS styles │ └── package.json # Frontend dependencies ├── README.md # Project documentation (you’re reading it!) └── requirements.txt # Python dependencies (e.g., Flask, NLTK)
+smart-personal-assistant/
+├── app.py              # Flask backend with /chat endpoint and context logic
+├── chat_log.txt        # Logs of user-assistant conversations
+├── frontend/           # Next.js frontend directory
+│   ├── pages/          # React pages (e.g., chat interface)
+│   ├── styles/         # Tailwind CSS styles
+│   └── package.json    # Frontend dependencies
+├── README.md           # Project documentation (you’re reading it!)
+└── requirements.txt    # Python dependencies (e.g., Flask, NLTK)
 
 ## Author
 - **Logen** ([GitHub](https://github.com/Logen))
